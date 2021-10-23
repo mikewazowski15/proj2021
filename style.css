@@ -1,0 +1,39 @@
+.green {
+    background-color:#006400 ;
+  }
+
+  .grey {
+    background-color:#D3D3D3 ;
+  }
+
+  .div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 15px;
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+  body, html {
+    height: 100%;
+  }
+
+  /* Full height image header */
+  .bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/นอน.jpg");
+    min-height: 100%;
+    opacity: 0.7;
+  }
+
+  .w3-bar .w3-button {
+    padding: 16px;
+  }
+
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<title>Basic Sleep Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="according.css">
+<link rel="stylesheet" href="search.css">
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top" style="z-index: 2;">
+    <div class="w3-top">
+        <div class="w3-bar green w3-wide w3-padding w3-card">
+          <a class="w3-bar-item" style="color: white;"><img src="Medicine_KKU_Thai_Emblem.png" width="15%" height="15%"> <span class="w3-large" style="margin-left: 50px;">Srinagarind Hospital</span></a>
+          <br><br><a class="w3-bar-item" style="color: white;"><span class="w3-small" style="position: relative; right: 500px; top: 10px;">Paediatric Clinic</span></a>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="sidebar">
+  <h4 class="w3-bar-item " style="font-size: x-large;padding-top: 50%;padding-left: 40px;"><i class='fa fa-bars' style="margin-right: 10px;"></i><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" style="padding-left: 40px;" href="sleeptest.html"><i class='fa fa-bed' style="margin-right: 10px;"></i>Sleep Test</a>
+  <a class="w3-bar-item w3-button w3-hover-black" style="padding-left: 40px;" href="mycase.html"><i class='fa fa-address-card' style="margin-right: 10px;"></i>My Case</a>
+</div>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" style="display: block; position: relative;left:15%;">
+  <div style="display: block; position: relative;left:5%;padding-top: 5%;">
+    <p class="w3-jumbo w3-hide-small" style="color: green;">Basic Sleep Test</span><br></p>
+  </div>
+
+  <div style="display: block; position: relative;left:5%;">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search patient names..  &#xF002;" title="Type in a name" style="font-family:FontAwesome">
+    <span style="display: inline; position: relative;left:45%;">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search patient names..  &#xF073;" title="Type in a name" style="font-family:FontAwesome">
+    </span>
+  </div>
+
+  <div style="display: block; position: relative;left:5%;">
+        <button class="accordion" onclick="myFunction('Demo1'),myFunction('Demo2'),myFunction2('Demo3')">
+            <table>
+                <tr>
+                    <th style="width: 50%;">Date :</th>
+                    <th style="text-align: right;">
+                        <i class='fa fa-angle-down' style="color: green;font-size:24px" id="Demo3"></i>
+                        <i class='fa fa-angle-up w3-hide' style="color: green;font-size:24px" id="Demo2"></i>
+                    </th>
+                </tr>
+            </table>
+            <div id="Demo1" class="w3-container w3-hide ">
+                <hr style="border: 1px solid black;">
+                <table>
+                    <tr>
+                        <th style="width: 50%;text-align: center;">Patient</th>
+                        <th style="text-align: center;">Oxygen blood</th>
+                    </tr>
+                </table>
+            </div> 
+        </button>
+        
+        
+  </div>
+  
+</header>
+
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>
+
+<script>
+    function myFunction2(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-hide") == -1) {
+        x.className += " w3-hide";
+      } else { 
+        x.className = x.className.replace(" w3-hide", "");
+      }
+    }
+</script>
+
+
+
+</body>
+</html>
