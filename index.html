@@ -44,7 +44,7 @@
       navigator.bluetooth.requestDevice({
         filters: [{
           name: ['VTM 20F'],
-          service: [0xffe0]
+          service: [0xffe0, 0xffe4]
         }]
       })
       .then(device => {
