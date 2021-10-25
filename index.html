@@ -48,6 +48,7 @@
         }]
       })
       .then(device => {
+        console.log(service);
         return device.gatt.connect();
       })
       .then(server => {
