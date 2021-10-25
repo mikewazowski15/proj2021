@@ -84,7 +84,7 @@
         a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
       }
       if (a[1] == '0x0a'){
-        console.log("Heart rate "+parseInt(a[5],16)+" bpm"+"SpO2 "+parseInt(a[4],16),parseInt(a[6],16));
+        console.log("Heart rate "+parseInt(a[5],16)+" bpm","|","SpO2 "+parseInt(a[4],16),"|",parseInt(a[6],16));
       };
     }
 
