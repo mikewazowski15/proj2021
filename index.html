@@ -43,7 +43,7 @@
     function onButtonClick() {
       navigator.bluetooth.requestDevice({
         filters: [{
-          name: ['VTM 20F'],services:[0xFFE0]
+          name: ["VTM 20F"]
         }]
       })
       .then(device => {
@@ -52,11 +52,11 @@
       })
       .then(server => {
         console.log('Getting Service...');
-        return server.getPrimaryService(0xffe0);
+        return server.getPrimaryService('0000ffe0-0000-1000-8000-00805f9b34fb');
       })
       .then(service => {
         console.log('Getting Characteristic...');
-        return service.getCharacteristic(0xffe4);
+        return service.getCharacteristic('0000ffe4-0000-1000-8000-00805f9b34fb');
       })
       .then(characteristic => {
         myCharacteristic = characteristic;
