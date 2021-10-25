@@ -43,8 +43,7 @@
     function onButtonClick() {
       navigator.bluetooth.requestDevice({
         filters: [{
-          name: ['VTM 20F'],
-          service: [0xffe0, 0xffe4]
+          name: ['VTM 20F']
         }]
       })
       .then(device => {
