@@ -33,10 +33,72 @@
         <a href="login.html" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Login
           <i class='fa fa-user-circle' style="padding-left:10px;"></i></i></a>
       </p>
+      <button onclick="onButtonClick()">scan</button>
+      <button onclick="onStopButtonClick()">stop</button>
       
   </div>
-  
 </header>
+
+<script>
+    function onButtonClick() {
+      navigator.bluetooth.requestDevice({
+        filters: [{
+          name: ['VTM 20F']
+        }]
+      })
+      .then(device => {
+        return device.gatt.connect();
+      })
+      .then(server => {
+        console.log('Getting Service...');
+        return server.getPrimaryService(0xffe0);
+      })
+      .then(service => {
+        console.log('Getting Characteristic...');
+        return service.getCharacteristic(0xffe4);
+      })
+      .then(characteristic => {
+        myCharacteristic = characteristic;
+        return myCharacteristic.startNotifications()
+        .then(_ => {
+          console.log('> Notifications started');
+          myCharacteristic.addEventListener('characteristicvaluechanged',handleNotifications);
+        });
+      })
+      .then(value => {
+    // let decoder = new TextDecoder('utf-8');
+        console.log(value);
+      })
+      .catch(error => {
+        console.log('Argh! ' + error);
+      });
+    }
+
+    function handleNotifications(event) {
+      let value = event.target.value;
+      let a = [];
+      for (let i = 0; i < value.byteLength; i++) {
+        a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
+      }
+      if (a[1] == '0x0a'){
+        console.log(a[0],a[1],parseInt(a[4],16),parseInt(a[5],16),parseInt(a[6],16));
+      };
+    }
+
+    function onStopButtonClick() {
+      if (myCharacteristic) {
+        myCharacteristic.stopNotifications()
+        .then(_ => {
+          console.log('> Notifications stopped');
+          myCharacteristic.removeEventListener('characteristicvaluechanged',
+              handleNotifications);
+        })
+        .catch(error => {
+          console.log('Argh! ' + error);
+        });
+      }
+    }
+</script>
 
 
 
